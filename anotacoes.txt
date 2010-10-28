@@ -1,0 +1,6 @@
+Dados interessantes:
+- s(n).data_mat: Inferred locations at each hour of the day. 1 – home, 2 –
+work, 3 – elsewhere, 0 – no signal, NaN – phone is off
+
+- 
+

@@ -3,9 +3,10 @@ function familiarStranger = generateFamiliarStranger(s, network)
     import java.util.*;
     
     familiarStranger = HashMap();
+    %mais que 92 dah pau
     for i=1:92
        n = network.sub_sort(i);
-       mac = hex2dec(s(n).my_mac);
+       mac = int64(hex2dec(s(n).my_mac));
        %disp('lala');
        disp(n);
        %disp(mac);

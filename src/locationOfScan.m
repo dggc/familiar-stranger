@@ -1,5 +1,5 @@
 function locationOfScan = locationOfScan(s, person, scanNumber)
-    if(s(person).device_date(scanNumber) > s(person).places.endate || s(person).device_date(scanNumber) < s(person).places.startdate)
+    if(isempty(s(person).places) || s(person).device_date(scanNumber) > s(person).places.endate || s(person).device_date(scanNumber) < s(person).places.startdate)
         locationOfScan = 'invalid';
         return;
     end

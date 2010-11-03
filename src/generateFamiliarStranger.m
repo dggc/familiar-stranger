@@ -3,12 +3,12 @@ function familiarStranger = generateFamiliarStranger(s, network)
     import java.util.*;
     
     familiarStranger = HashMap();
-    for i=1:90
+    for i=1:92
        n = network.sub_sort(i);
        mac = hex2dec(s(n).my_mac);
        %disp('lala');
        disp(n);
-       disp(mac);
+       %disp(mac);
        if(~familiarStranger.containsKey(mac))
            familiarStranger.put(mac, HashMap());
        end
@@ -16,20 +16,30 @@ function familiarStranger = generateFamiliarStranger(s, network)
        scanSize = length(s(n).device_date);
        %disp(scanSize);
        for j=1:scanSize
-           scan = s(n).device_macs(j);
+           %disp(j);
            if(strcmp(locationOfScan(s,n,j),'elsewhere'))
-               disp(scan);
-               disp(j);
-               if(~aux.containsKey(scan))
-                   disp('lele');
-                   aux.put(scan, 0);
-               else
-                   disp('lolo');
+               scanArray = s(n).device_macs(j);
+               scanArray = scanArray{1};
+               for k=1:length(scanArray)
+                   scan = scanArray(k);
+                   scan = int64(scan);
+                   %disp(scan);
+                   %disp(j);
+                   if(~aux.containsKey(scan))
+                       %disp('lele');
+                       aux.put(scan, 0);
+                   else
+                       %disp('lolo');
+                   end
+                   %disp('lili');
+                   %disp(aux.get(scan));
+                   %disp('lili');
+                   tmp = aux.get(scan);
+                   tmp = tmp+1;
+                   %disp(scan);
+                   %disp(tmp);
+                   aux.put(scan,tmp);
                end
-               disp('lili');
-               disp(aux.get(scan));
-               disp('lili');
-               aux.put(s(n).device_macs(scan, aux.get(scan)+1));
            end
        end
     end

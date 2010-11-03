@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nodo id="2" intervalos="3" inicioRelativo="100">
+    <intervalo macs="0">
+    </intervalo>
+    <intervalo macs="0">
+    </intervalo>
+    <intervalo macs="1">
+        <mac>1</mac>
+    </intervalo>
+</nodo>

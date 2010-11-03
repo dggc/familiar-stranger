@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<food>
+    <name type="fruit">Avocado Dip</name>
+    <mfr>Sunnydale</mfr>
+    <serving units="g">29</serving>
+    <teste>
+        <a>30</a>
+        <c>0</c>
+    </teste>
+    <calories total="110" fat="100"/>
+    <total-fat>11</total-fat>
+    <saturated-fat>3</saturated-fat>
+    <cholesterol>5</cholesterol>
+    <sodium>210</sodium>
+    <carb>2</carb>
+    <fiber>0</fiber>
+    <protein>1</protein>
+    <vitamins>
+        <a>0</a>
+        <c>0</c>
+    </vitamins>
+    <minerals>
+        <ca>0</ca>
+        <fe>0</fe>
+    </minerals>
+</food>

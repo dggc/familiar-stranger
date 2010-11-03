@@ -1,4 +1,4 @@
-function familiarStranger = generateFamilarStranger(s, network)
+function familiarStranger = generateFamiliarStranger(s, network)
     import java.lang.*;
     import java.util.*;
     

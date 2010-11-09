@@ -1,4 +1,4 @@
-function b = getFamiliarStrangerPairs( a, min, max )
+function b = encounterPairs( a, min, max )
     import java.lang.*;
     import java.util.*;
     

@@ -1,8 +1,8 @@
-function familiarStranger = generateFamiliarStranger(s, network)
+function encounterMatrix = generateEncounterMatrix(s, network, location)
     import java.lang.*;
     import java.util.*;
     
-    familiarStranger = HashMap();
+    encounterMatrix = HashMap();
     %mais que 92 dah pau
     for i=1:92
        n = network.sub_sort(i);
@@ -10,15 +10,15 @@ function familiarStranger = generateFamiliarStranger(s, network)
        %disp('lala');
        disp(n);
        %disp(mac);
-       if(~familiarStranger.containsKey(mac))
-           familiarStranger.put(mac, HashMap());
+       if(~encounterMatrix.containsKey(mac))
+           encounterMatrix.put(mac, HashMap());
        end
-       aux = familiarStranger.get(mac);
+       aux = encounterMatrix.get(mac);
        scanSize = length(s(n).device_date);
        %disp(scanSize);
        for j=1:scanSize
            %disp(j);
-           if(strcmp(locationOfScan(s,n,j),'elsewhere'))
+           if(strcmp(locationOfScan(s,n,j),location))
                scanArray = s(n).device_macs(j);
                scanArray = scanArray{1};
                for k=1:length(scanArray)

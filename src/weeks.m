@@ -76,7 +76,9 @@ function w  = weeks(s, network, encounterDateMatrix, min, max)
                 ratio = 1;
             end
             %disp(ratio);
-            w.add({firstMac, secondMac, ratio});
+            if(ratio ~= 0)
+                w.add({firstMac, secondMac, ratio});
+            end
             %w.add([secondMac, ratio]);
             %disp(w.getLast());
         end

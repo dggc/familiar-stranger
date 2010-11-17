@@ -6,8 +6,12 @@ function encounterMatrix = generateDateEncounterMatrix(s, network, location)
     encounterMatrix = HashMap();
     dateFormat = SimpleDateFormat('dd-MMM-yyyy');
     %mais que 92 dah pau
-    for i=1:5
+    for i=1:92
        n = network.sub_sort(i);
+       if(isempty(s(n).places))
+           continue;
+       end
+       
        mac = int64(hex2dec(s(n).my_mac));
        %disp('lala');
        disp(n);
@@ -21,7 +25,6 @@ function encounterMatrix = generateDateEncounterMatrix(s, network, location)
        for j=1:scanSize
            %disp(j);
            if(strcmp(locationOfScan(s,n,j),location))
-               scanArray = s(n).device_macs(j);
                scanDateAux = dateFormat.parse(datestr(s(n).device_date(j)));
                scanDate = Calendar.getInstance();
                scanDate.setTime(scanDateAux);
@@ -29,6 +32,7 @@ function encounterMatrix = generateDateEncounterMatrix(s, network, location)
                scanDate.set(Calendar.MINUTE,0);
                scanDate.set(Calendar.SECOND,0);
                
+               scanArray = s(n).device_macs(j);
                scanArray = scanArray{1};
                for k=1:length(scanArray)
                    scan = scanArray(k);
@@ -36,15 +40,13 @@ function encounterMatrix = generateDateEncounterMatrix(s, network, location)
                    %disp(scan);
                    %disp(j);
                    if(~aux.containsKey(scan))
-                       %disp('lele');
                        aux.put(scan, HashMap());
-                   else
-                       %disp('lolo');
                    end
+                   dailyHash = aux.get(scan);
+                   
                    %disp('lili');
                    %disp(aux.get(scan));
                    %disp('lili');
-                   dailyHash = aux.get(scan);
                    if(~dailyHash.containsKey(scanDate))
                        dailyHash.put(scanDate, 0);
                    end
@@ -52,10 +54,12 @@ function encounterMatrix = generateDateEncounterMatrix(s, network, location)
                    tmp = tmp+1;
                    %disp(scan);
                    %disp(tmp);
+                   %disp(n);
+                   %disp(j);
+                   %disp(scanDate.getTime().toLocaleString());
                    dailyHash.put(scanDate,tmp);
                end
            end
        end
     end
 end
-

@@ -6,6 +6,10 @@ function encounterMatrix = generateEncounterMatrix(s, network, location)
     %mais que 92 dah pau
     for i=1:92
        n = network.sub_sort(i);
+       if(isempty(s(n).places))
+           continue;
+       end
+       
        mac = int64(hex2dec(s(n).my_mac));
        %disp('lala');
        disp(n);

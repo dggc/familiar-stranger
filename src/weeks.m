@@ -63,7 +63,8 @@ function w  = weeks(s, network, encounterDateMatrix, min, max)
                 end
             end
         
-            if(validWeeks/nWeeks>1)
+            ratio = validWeeks/nWeeks;
+            if(ratio>1)
                 disp(position);
                 disp(firstMac);
                 disp(secondMac);
@@ -72,9 +73,12 @@ function w  = weeks(s, network, encounterDateMatrix, min, max)
                 disp(validWeeks);
                 disp(nWeeks);
                 
-                validWeeks = nWeeks;
+                ratio = 1;
             end
-            w.add([firstMac, secondMac, validWeeks/nWeeks]);
+            %disp(ratio);
+            w.add({firstMac, secondMac, ratio});
+            %w.add([secondMac, ratio]);
+            %disp(w.getLast());
         end
     end
 end

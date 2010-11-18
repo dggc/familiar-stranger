@@ -29,3 +29,4 @@ elsewhereFriendWeeks = weeks(s,network,elsewhereFriendDateMatrix,0,9999);
 workNonFriendWeeks = weeks(s,network,workNonFriendDateMatrix,0,9999);
 homeNonFriendWeeks = weeks(s,network,homeNonFriendDateMatrix,0,9999);
 elsewhereNonFriendWeeks = weeks(s,network,elsewhereNonFriendDateMatrix,0,9999);
+

@@ -1,0 +1,1 @@
+[timeMatrix, numbMatrix] = generateTimeMatrix( s, network);

@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 TEX=familiar-stranger.tex \
 		title.tex \
-		introduction.tex related-work.tex modeling.tex simulation.tex results.tex
+		introduction.tex related-work.tex modeling.tex simulation.tex results.tex conclusion.tex
 
 familiar-stranger.pdf: $(TEX) familiar-stranger.bib 
 	pdflatex familiar-stranger.tex

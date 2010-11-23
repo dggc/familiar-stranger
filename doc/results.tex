@@ -21,24 +21,28 @@ o fato de que no no dataset analisado amigos não se encontraram com alta
 frequência. Como o SocialRoute é baseado apenas no quesito de amizade
 para a entrega das mensagens resultou em um desempenho insatisfatório.
 Uma adaptação que pode ser considerada nesse protocolo é a entrega de
-mensagens também para os estranhos familiares, além dos amigos. Essa
-estratégia será discutida posteriormente.
+mensagens também para os estranhos familiares, além dos amigos.
+Realizamos analises preliminares no dataset considerado, e temos
+indícios que esse fenômeno existe. Porém, até a data de entrega deste
+trabalho não tinhamos nenhum resultado concreto para ser apresentado.
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{img/tempo_epidemico_socialRoute.png}
-\caption{Tempo de entrega das mensasens considerando os protocolos Epidêmico e SocialRoute}
+\caption{Tempo de entrega das mensasens considerando os protocolos
+Epidêmico e SocialRoute}
 \label{fig:Epidemico_SocialRoute}
 \end{figure}
 
 % \begin{figure}[ht]
 % \centering
 % \includegraphics[width=.7\textwidth]{img/tempo_epidemico_solo.png}
-% \caption{Tempo de entrega das mensasens considerando o protocolo Epidêmico}
+% \caption{Tempo de entrega das mensasens considerando o protocolo
+% Epidêmico}
 % \label{fig:EpidemicoSolo}
 % \end{figure}
 
-A Figura~\ref{fig:Epidemico_EpidemicoNetCode} mostra os resultados
+A Figura \ref{fig:Epidemico_EpidemicoNetCode} mostra os resultados
 referentes ao tempo de entrega das mensasens considerando o protocolo
 Epidêmico e Epidêmico utilizando codificação em rede. Podemos observar
 que o desempenho da versão do algoritmo Epidêmico que utiliza
@@ -49,12 +53,13 @@ intervalo de tempo com o intuito de codificar várias mensagens um uma
 só. Com isso, um resultado inferior, em relação à versão sem codificação
 em rede, já era esperado. O que não era esperado é um resultado muito
 inferior, como o obtido. Acreditamos que esse resultado precisa ser
-revisto.
+revisto.  
 
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{img/tempo_epidemico_EpidemNetCode.png}
-\caption{Tempo de entrega das mensasens considerando o protocolo Epidêmico e Epidêmico com codificação em rede}
+\caption{Tempo de entrega das mensasens considerando o protocolo
+Epidêmico e Epidêmico com codificação em rede}
 \label{fig:Epidemico_EpidemicoNetCode}
 \end{figure}
 
@@ -73,6 +78,9 @@ condições não funcionaria de maneira aceitável.
 \begin{figure}[ht]
 \centering
 \includegraphics[width=.7\textwidth]{img/tempo_epidemico_interferencia.png}
-\caption{Tempo de entrega das mensasens considerando o protocolo Epidêmico e Epidêmico com codificação em rede, em um cenário com interferência}
+\caption{Tempo de entrega das mensasens considerando o protocolo
+Epidêmico e Epidêmico com codificação em rede, em um cenário com
+interferência}
 \label{fig:Epidemico_EpidemicoNetCode_interf}
-\end{figure} 
+\end{figure}
+

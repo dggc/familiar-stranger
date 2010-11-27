@@ -1,1 +1,7 @@
 *~
+*.bak
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf

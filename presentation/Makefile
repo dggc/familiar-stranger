@@ -1,5 +1,9 @@
 SHELL=/bin/bash
-TEX=presentation.tex
+TEX=presentation.tex \
+	includes.tex \
+	title.tex \
+	introduction.tex \
+	bibliography.tex
 
 presentation.pdf: $(TEX) presentation.bib 
 	pdflatex presentation

@@ -2,7 +2,7 @@ SHELL=/bin/bash
 TEX=presentation.tex \
 	includes.tex \
 	title.tex \
-	introduction.tex dataset.tex \
+	introduction.tex dataset.tex simulation.tex \
 	bibliography.tex
 
 presentation.pdf: $(TEX) presentation.bib 

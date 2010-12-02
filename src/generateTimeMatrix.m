@@ -1,51 +1,69 @@
-function encounterMatrix = generateEncounterMatrix(s, network, location)
+function [time, numb] = generateTimeMatrix(s, network)
     import java.lang.*;
     import java.util.*;
     
-    encounterMatrix = HashMap();
-    %mais que 92 dah pau
-    for i=1:92
+    % Number of subjects
+    % TODO: Change this
+    MAX = 10;
+    
+    % Return values
+    time = HashMap();
+    numb = HashMap();
+
+    % iterate over all subjects
+    for i=1:MAX
+       % aux_t var to check whether a access is continuous
+       last = HashMap();
+       
        n = network.sub_sort(i);
        if(isempty(s(n).places))
            continue;
        end
        
-       mac = int64(hex2dec(s(n).my_mac));
-       %disp('lala');
-       disp(n);
-       %disp(mac);
-       if(~encounterMatrix.containsKey(mac))
-           encounterMatrix.put(mac, HashMap());
+       mac_i = int64(hex2dec(s(n).my_mac));
+       disp(sprintf('%d : %d mac_i %0f', i, n, mac_i));
+       %disp(mac_i);
+       if(~time.containsKey(mac_i))
+           time.put(mac_i, HashMap());
+           numb.put(mac_i, HashMap());
        end
-       aux = encounterMatrix.get(mac);
+       aux_t = time.get(mac_i);
+       aux_n = numb.get(mac_i);
        scanSize = length(s(n).device_date);
-       %disp(scanSize);
-       for j=1:scanSize
-           %disp(j);
-           if(strcmp(locationOfScan(s,n,j),location))
-               scanArray = s(n).device_macs(j);
-               scanArray = scanArray{1};
-               for k=1:length(scanArray)
-                   scan = scanArray(k);
-                   scan = int64(scan);
-                   %disp(scan);
-                   %disp(j);
-                   if(~aux.containsKey(scan))
-                       %disp('lele');
-                       aux.put(scan, 0);
-                   else
-                       %disp('lolo');
+       
+       % iterate over all scans
+       % for t=1:scanSize
+       for t=1:100
+
+%            if(strcmp(locationOfScan(s,n,t),location))
+           scanArray = s(n).device_macs(t);
+           scanArray = scanArray{1};
+
+           % iterate over all pairs
+           disp(sprintf('Time: %d', t));
+           for j=1:length(scanArray)
+               mac_j = scanArray(j);
+               mac_j = int64(mac_j);
+               if(~aux_t.containsKey(mac_j))
+                   % First meeting
+                   aux_n.put(mac_j, 1);
+                   aux_t.put(mac_j, 5);
+               else
+                   % Not the first time
+                   if (last.get(mac_j) == (t - 1))
+                       disp('   **again ');
+                       tmp_n = aux_n.get(mac_j);
+                       tmp_n = tmp_n + 1;
+                       aux_n.put(mac_j, tmp_n);
                    end
-                   %disp('lili');
-                   %disp(aux.get(scan));
-                   %disp('lili');
-                   tmp = aux.get(scan);
-                   tmp = tmp+1;
-                   %disp(scan);
-                   %disp(tmp);
-                   aux.put(scan,tmp);
                end
+               tmp_t = aux_t.get(mac_j);
+               tmp_t = tmp_t + 5;
+               aux_t.put(mac_j, tmp_t);
+               last.put(mac_j, t);
+               disp(sprintf('   mac_j: %f', mac_j));
            end
+%            end
        end
     end
 end

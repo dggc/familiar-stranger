@@ -5,8 +5,10 @@
     \begin{itemize}
     \item Projeto Reality Mining, realizado entre 2004 e 2005 no
     laboratório MIT Media.
-    \item 94 usuários monitorados.
-    \item Log de informações como:
+    \vspace{.4cm}
+    \item 94 usuários monitorados usando seus telefones celulares.
+    \vspace{.4cm}
+    \item Log de informações:
     \begin{itemize}
         \item Ligações realizadas e recebidas.
         \item ID bluetooth de aparelhos próximos
@@ -30,15 +32,37 @@
 
 \subsection{Codificação em rede}
 \frame{
-    \frametitle{Codificação em rede}
+    \frametitle{Codificação em rede: Rede Aleatória de Codificação}
+
+    \begin{itemize}
+      \item \textbf{Codificação em rede}: Técnicas de processamento de dados com o objetivo de aumentar a capacidade da rede.
+      \vspace{.4cm}
+      \item \textbf{Rede Aleatória de Codificação:} \\ Cada mensagem contém: \\
+        $\rightarrow$ Vetor de codificação (gerado aleatoriamente) e combinado com vetores anteriores\\
+        $\rightarrow$ Mensagem codificada\\
+      \vspace{.4cm}
+      \item Decodificação depende de pacotes com informações codificadas (linearmente independentes).
+    \end{itemize}
+
+
 }
 
+\frame{
+    \frametitle{Codificação em rede: Rede Aleatória de Codificação}
+    \begin{figure}
+      \centering
+      \includegraphics[scale=.3]{../doc/img/diagramas/netCodingDiagram.png}
+    \end{figure}
+
+}
 \subsection{Detalhes da execução}
 \frame{
     \frametitle{Algoritmos}
     \begin{itemize}
-    \item Epidêmico
-    \item SocialRoute
+    \item \textbf{Epidêmico:} Cada nodo que recebe uma mensagem repassa a seus vizinhos (broadcast), caso algum de seus vizinhos ainda não possui essa informação.
+    \vspace{.6cm}
+
+    \item \textbf{SocialRoute:} Cada nodo somente repassa a informação caso o nodo atual ou algum dos vizinhos seja amigo do destinatário.
     \end{itemize}
 }
 
@@ -47,6 +71,7 @@
     \begin{itemize}
     \item 1666 nodos, entre participantes do experimento e aparelhos
     percebidos por estes participantes
+    \vspace{.6cm}
     \item Período considerado: 1 semana
     %explicar do custo computacional, e tals
     \end{itemize}
